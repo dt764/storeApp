@@ -3,7 +3,8 @@ import { Injectable, inject } from '@angular/core';
 import {
   Auth, user, 
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  createUserWithEmailAndPassword
 } from'@angular/fire/auth';
 
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -25,5 +26,9 @@ export class AuthService {
   
   getUID() { 
     return this.auth.currentUser?.uid;
+  }
+
+  async register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 }

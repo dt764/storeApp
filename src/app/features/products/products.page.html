@@ -15,7 +15,7 @@
 <ion-content>
   <ion-list>
     @for (product of productService.products(); track product.id) {
-      <ion-item>
+      <ion-item [routerLink]="['/products', product.id]">
         <ion-thumbnail slot="start">
           <img [src]="product.imageUrl" />
         </ion-thumbnail>

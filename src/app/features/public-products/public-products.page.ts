@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+import {
+  IonContent, IonHeader, IonTitle, IonToolbar,
+  IonList, IonItem, IonThumbnail, IonLabel
+} from '@ionic/angular/standalone';
+
+import { ProductService } from 'src/app/core/services/products.service';
 
 @Component({
   selector: 'app-public-products',
   templateUrl: './public-products.page.html',
   styleUrls: ['./public-products.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonContent, IonHeader, IonTitle, IonToolbar, CommonModule,
+    FormsModule, IonList, IonItem, IonThumbnail, IonLabel
+  ]
 })
-export class PublicProductsPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class PublicProductsPage {
+  public productService = inject(ProductService);
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule, LoadingController, ViewWillEnter } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { ProductService } from '../../core/services/products.service';
 import { add, logOutOutline} from 'ionicons/icons';
@@ -13,7 +13,7 @@ import { Product } from 'src/app/core/models/product.model';
   standalone: true,
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
-  imports: [IonicModule, CommonModule]
+  imports: [IonicModule, CommonModule, RouterLink]
 })
 export class ProductsPage  {
   public productService = inject(ProductService);

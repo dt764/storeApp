@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>product-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if(product()) {
+    <ion-card>
+      <img [src]="product()?.imageUrl" alt="Imagen del producto" />
+      <ion-card-header>
+        <ion-card-title>{{ product()?.name }}</ion-card-title>
+        <ion-card-subtitle>{{ product()?.description }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button color="danger" slot="end" (click)="id && deleteProduct(id)">
+          Borrar
+        </ion-button>
+      </ion-card-content> 
+    </ion-card>
+  } @else {
+    <p>Producto no encontrado.</p> 
+  }
+</ion-content>
