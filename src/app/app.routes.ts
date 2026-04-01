@@ -10,4 +10,24 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./features/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'products',
+    loadComponent: () => import('./features/products/products.page').then( m => m.ProductsPage)
+  },
+  {
+    path: 'add-product',
+    loadComponent: () => import('./features/add-product/add-product.page').then( m => m.AddProductPage)
+  },
+  {
+    path: 'public-products',
+    loadComponent: () => import('./features/public-products/public-products.page').then( m => m.PublicProductsPage)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./features/register/register.page').then( m => m.RegisterPage)
+  },
 ];

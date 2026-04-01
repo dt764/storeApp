@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir desde URL</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <ion-item>
+      <ion-label position="floating">Nombre del Producto</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">URL de la imagen (Internet)</ion-label>
+      <ion-input type="url" formControlName="imageUrl"
+placeholder="https://ejemplo.com/foto.jpg"></ion-input>
+    </ion-item>
+    @if (productForm.get('imageUrl')?.valid) {
+      <div class="ion-text-center ion-padding">
+        <p><small>Previsualización externa:</small></p>
+        <img [src]="productForm.value.imageUrl" style="width: 150px; border-radius: 8px; border: 1px solid #ddd;" />
+      </div>
+    }
+    <ion-button expand="full" type="submit" [disabled]="productForm.invalid"
+class="ion-margin-top">
+      Subir a mi Firebase
+    </ion-button>
+  </form>
+</ion-content>
