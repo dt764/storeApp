@@ -2,7 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonThumbnail, IonLabel, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList,
+  IonItem, IonThumbnail, IonLabel, IonButtons, IonBackButton
+} from '@ionic/angular/standalone';
 
 import { ProductService } from 'src/app/core/services/products.service';
 

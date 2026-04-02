@@ -82,5 +82,4 @@ export class ProductDetailPage {
 
     img.src = 'assets/no-image.jpg';
   }
-
 }

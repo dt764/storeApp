@@ -6,12 +6,10 @@
     <ion-title>Productos Públicos</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list>
     @for (product of productService.allProducts(); track product.id) {
       <ion-item lines="none">
-
         <ion-thumbnail slot="start" class="incidencia-thumb">
           <img 
             [src]="product.imageUrl || 'assets/no-image.jpg'" 
@@ -19,8 +17,6 @@
             alt="imagen"
           />
         </ion-thumbnail>
-
-        <!-- Texto -->
         <ion-label>
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>

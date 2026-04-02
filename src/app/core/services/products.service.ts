@@ -35,7 +35,8 @@ export class ProductService {
   public products = toSignal(this.products$, { initialValue: [] });
 
   private allProductsCollection = collection(this.firestore, 'products');
-  private allProducts$: Observable<Product[]> = collectionData(this.allProductsCollection, { idField: 'id' }) as Observable<Product[]>;
+  private allProducts$: Observable<Product[]> =
+    collectionData(this.allProductsCollection, { idField: 'id' }) as Observable<Product[]>;
   public allProducts = toSignal(this.allProducts$, { initialValue: [] });
   
   async addProduct(product: Product) {
