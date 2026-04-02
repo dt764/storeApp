@@ -1,0 +1,89 @@
+ion-content {
+  --background: var(--ion-color-primary-shade); /* fondo diferente al login */
+}
+
+.page-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-main.register-card {
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  background-color: var(--ion-color-light);
+  padding: 2%;
+  width: 100%;
+  max-width: 850px;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.card-main.register-card ion-card-title {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--ion-color-dark);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 6px;
+}
+
+.form-field ion-input,
+.form-field ion-textarea {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: var(--ion-color-light);
+  --background: var(--ion-color-light);
+  color: var(--ion-color-dark);
+}
+
+.btn-register {
+  --background: var(--ion-color-secondary);
+  --color: var(--ion-color-secondary-contrast);
+  --border-radius: 14px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-top: 16px;
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--ion-color-medium);
+}
+
+.login-link a {
+  color: var(--ion-color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-link {
+  margin-top: 12px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--ion-color-medium);
+}
+
+.home-link a {
+  color: var(--ion-color-primary); /* complementario al registro si quieres */
+  font-weight: 600;
+  text-decoration: none;
+}

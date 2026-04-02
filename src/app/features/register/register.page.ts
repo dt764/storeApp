@@ -11,7 +11,7 @@ import {
   ToastController,
   LoadingController
 } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -19,7 +19,7 @@ import { AuthService } from '../../core/services/auth.service';
   standalone: true,
   templateUrl: './register.page.html',
   styleUrl: './register.page.scss',
-  imports: [IonicModule, CommonModule, ReactiveFormsModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, RouterLink],
 })
 export class RegisterPage {
 
