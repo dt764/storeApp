@@ -37,13 +37,24 @@ ion-content {
   line-height: 1.6;
 }
 
-ion-button {
+.btn-primary {
    --background: var(--ion-color-primary);
   --color: var(--ion-color-primary-contrast);
   --border-radius: 14px;
   --padding-top: 14px;
   --padding-bottom: 14px;
   --padding-start: 0;   /* opcional, para botones expand=block */
+  --padding-end: 0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.btn-secondary {
+  --background: var(--ion-color-medium);
+  --color: var(--ion-color-medium-contrast);
+  --border-radius: 14px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --padding-start: 0;
   --padding-end: 0;
   font-size: clamp(1rem, 3vw, 1.2rem);
 }
