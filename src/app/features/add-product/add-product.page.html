@@ -6,30 +6,39 @@
     <ion-title>Añadir desde URL</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
-    <ion-item>
-      <ion-label position="floating">Nombre del Producto</ion-label>
-      <ion-input formControlName="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-textarea formControlName="description"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">URL de la imagen (Internet)</ion-label>
-      <ion-input type="url" formControlName="imageUrl"
-placeholder="https://ejemplo.com/foto.jpg"></ion-input>
-    </ion-item>
-    @if (productForm.get('imageUrl')?.valid) {
-      <div class="ion-text-center ion-padding">
-        <p><small>Previsualización externa:</small></p>
-        <img [src]="productForm.value.imageUrl" style="width: 150px; border-radius: 8px; border: 1px solid #ddd;" />
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+      <div class="form-inner">
+        <img 
+          class="product-image" 
+          [src]="productForm.value.imageUrl || 'assets/no-image.jpg'" 
+          alt="Preview imagen"
+          (error)="onImageError($event)"
+        />
+      
+        <div class="product-info">
+          <div class="form-field">
+            <label>Nombre del Producto</label>
+            <ion-input formControlName="name" placeholder="Nombre del producto"></ion-input>
+          </div>
+
+          <div class="form-field desc">
+            <label>Descripción</label>
+            <textarea formControlName="description" placeholder="Descripción del producto"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label>URL de la imagen (Internet)</label>
+            <ion-input type="url" formControlName="imageUrl" placeholder="https://ejemplo.com/foto.jpg"></ion-input>
+          </div>
+
+          <ion-button expand="full" type="submit" [disabled]="productForm.invalid">
+            Subir a mi Firebase
+          </ion-button>
+        </div>
       </div>
-    }
-    <ion-button expand="full" type="submit" [disabled]="productForm.invalid"
-class="ion-margin-top">
-      Subir a mi Firebase
-    </ion-button>
-  </form>
+    </form>
+  </div>
 </ion-content>

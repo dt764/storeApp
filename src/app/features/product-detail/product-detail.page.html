@@ -1,24 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>product-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="container">
   @if(product()) {
-    <ion-card>
-      <img [src]="product()?.imageUrl" alt="Imagen del producto" />
-      <ion-card-header>
-        <ion-card-title>{{ product()?.name }}</ion-card-title>
-        <ion-card-subtitle>{{ product()?.description }}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-button color="danger" slot="end" (click)="id && deleteProduct(id)">
-          Borrar
-        </ion-button>
-      </ion-card-content> 
+    <ion-card class="product-card full-screen-card">
+      <div class="card-inner">
+        <img 
+          class="product-image" 
+          [src]="product()?.imageUrl || 'assets/placeholder.png'" 
+          alt="Imagen del producto"
+          (error)="onImageError($event)"
+        />
+        <div class="product-info">
+          <h2>{{ product()?.name }}</h2>
+          <p>{{ product()?.description }}</p>
+          <ion-button 
+            color="danger" 
+            class="delete-button"
+            (click)="id && deleteProduct(id)">
+            Borrar
+          </ion-button>
+        </div>
+      </div>
     </ion-card>
   } @else {
-    <p>Producto no encontrado.</p> 
+    <p>Producto no encontrado.</p>
   }
+  </div>
 </ion-content>

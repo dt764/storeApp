@@ -21,6 +21,7 @@ import { ProductService } from '../../core/services/products.service';
   selector: 'app-add-product',
   standalone: true,
   templateUrl: './add-product.page.html',
+  styleUrl: './add-product.page.scss',
   imports: [IonicModule, CommonModule, ReactiveFormsModule],
 })
 export class AddProductPage {
@@ -65,5 +66,14 @@ export class AddProductPage {
       color,
     });
     toast.present();
+  }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+
+    // Si ya es el placeholder, no hacer nada (evita bucle/parpadeo)
+    if (img.src.includes('no-image.jpg')) return;
+
+    img.src = 'assets/no-image.jpg';
   }
 }

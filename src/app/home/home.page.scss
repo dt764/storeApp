@@ -1,27 +1,49 @@
-#container {
+ion-content {
+  --background: var(--ion-color-secondary-shade);
+}
+
+.page-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-main {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background-color: var(--ion-color-light);
+  padding: 2%;
+  width: 100%;
+  max-width: 850px; /* card más ancho para pantallas grandes */
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.card-main ion-card-title {
+  font-size: clamp(2rem, 6vw, 2.8rem); /* escala según pantalla */
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--ion-color-dark);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* Párrafo más grande y responsive */
+.card-main p {
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  color: var(--ion-color-medium);
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
 
-#container a {
-  text-decoration: none;
+ion-button {
+   --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+  --border-radius: 14px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --padding-start: 0;   /* opcional, para botones expand=block */
+  --padding-end: 0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
 }

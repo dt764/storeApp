@@ -15,17 +15,24 @@
 <ion-content>
   <ion-list>
     @for (product of productService.products(); track product.id) {
-      <ion-item [routerLink]="['/products', product.id]">
-        <ion-thumbnail slot="start">
-          <img [src]="product.imageUrl" />
+      <ion-item lines="none" [routerLink]="['/products', product.id]">
+
+        <ion-thumbnail slot="start" class="incidencia-thumb">
+          <img 
+            [src]="product.imageUrl || 'assets/no-image.jpg'" 
+            (error)="onImageError($event)"
+            alt="imagen"
+          />
         </ion-thumbnail>
+
+        <!-- Texto -->
         <ion-label>
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>
         </ion-label>
       </ion-item>
     } @empty {
-      <ion-item>No tienes productos registrados.</ion-item>
+      <p>No tienes productos registrados.</p>
     }
   </ion-list>
 </ion-content>

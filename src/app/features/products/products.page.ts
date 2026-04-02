@@ -16,6 +16,7 @@ import { Product } from 'src/app/core/models/product.model';
   imports: [IonicModule, CommonModule, RouterLink]
 })
 export class ProductsPage  {
+
   public productService = inject(ProductService);
   private authService = inject(AuthService);
   private router = inject(Router);
@@ -31,5 +32,14 @@ export class ProductsPage  {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+
+    // Si ya es el placeholder, no hacer nada (evita bucle/parpadeo)
+    if (img.src.includes('no-image.jpg')) return;
+
+    img.src = 'assets/no-image.jpg';
   }
 }
