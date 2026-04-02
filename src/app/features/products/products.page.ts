@@ -29,9 +29,9 @@ export class ProductsPage  {
   goToAddProduct() {
     this.router.navigate(['/add-product']);
   }
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+  async logout() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/login', { replaceUrl: true });
   }
 
   onImageError(event: Event) {
